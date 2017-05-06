@@ -9,6 +9,7 @@ function setup() {
 
 function draw() {
     mouseDragged();
+    noStroke();
     fill(255);
   ellipse(mouseX, mouseY, 36, 36);
 
