@@ -9,8 +9,6 @@ var io = require('socket.io').listen(server);
 server.listen(process.env.PORT || 3000);
 console.log('Server is running on 3000');
 
-app.use(express.static('public'));
-
 app.get('/', function (req,res) {
     res.sendFile(__dirname + 'public/index.html');
 });
@@ -18,12 +16,10 @@ app.get('/', function (req,res) {
 io.sockets.on('connection', function (socket) {
     console.log('New connection:' + socket.id);
 
-    socket.on('mouse', mouseMsg);
-
-    function mouseMsg(data) {
+    socket.on('mouse', function (data) {
         socket.broadcast.emit('mouse', data);
         console.log(data);
-    }
+    });
 
 
 });
