@@ -1,0 +1,24 @@
+{
+  "name": "socket-io-draw",
+  "version": "1.0.0",
+  "description": "Socket io canvas",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karlogonzales/socket-io-draw.git"
+  },
+  "author": "Karlo Gonzales",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karlogonzales/socket-io-draw/issues"
+  },
+  "homepage": "https://github.com/karlogonzales/socket-io-draw#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "socket.io": "^1.7.3"
+  }
+}
