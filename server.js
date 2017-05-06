@@ -9,9 +9,8 @@ var io = require('socket.io').listen(server);
 server.listen(process.env.PORT || 3000);
 console.log('Server is running on 3000');
 
-app.get('/', function (req,res) {
-    res.sendFile(__dirname + 'public/index.html');
-});
+app.use(express.static('public'));
+
 
 io.sockets.on('connection', function (socket) {
     console.log('New connection:' + socket.id);
