@@ -11,9 +11,11 @@ console.log('Server is running on 3000');
 
 app.use(express.static('public'));
 
-io.sockets.on('connection', newConnection);
+app.get('/', function (req,res) {
+    res.sendFile(__dirname + 'public/index.html');
+});
 
-function newConnection(socket) {
+io.sockets.on('connection', function (socket) {
     console.log('New connection:' + socket.id);
 
     socket.on('mouse', mouseMsg);
@@ -22,5 +24,9 @@ function newConnection(socket) {
         socket.broadcast.emit('mouse', data);
         console.log(data);
     }
-}
+
+
+});
+
+
 
