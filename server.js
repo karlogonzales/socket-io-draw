@@ -3,14 +3,13 @@
  */
 var express = require('express');
 var app = express();
-var server = app.listen(3000);
+var server = require('http').createServer(app);
+var io = require('socket.io').listen(server);
 
-var socket = require('socket.io');
-var io = socket(server);
+server.listen(process.env.PORT || 3000);
+console.log('Server is running on 3000');
 
 app.use(express.static('public'));
-
-console.log('Server is running on 3000');
 
 io.sockets.on('connection', newConnection);
 
