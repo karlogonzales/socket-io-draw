@@ -3,7 +3,7 @@ var socket;
 function setup() {
     createCanvas(600, 400);
     background(51);
-    socket = io.connect(server);
+    socket = io.connect('http://localhost:3000');
     socket.on('mouse', newDrawing);
 }
 
@@ -28,6 +28,6 @@ function mouseDragged() {
 
 function newDrawing(data) {
     noStroke();
-    fill(255, 0, 100);
+    fill(255, 0, random(0,255));
     ellipse(data.x, data.y, 36, 36);
 }
